@@ -1,0 +1,22 @@
+<div class="content-list">
+    <!-- Iterate  each item in the contents array -->
+    <div *ngFor="let content of contents, let first = first" class="content-card" [ngClass]="{ 'border-black': first }">
+        <!-- Display the title -->
+        <h2>{{ content.title }}</h2>
+        
+        <!-- Display the image if available and the click event for console -->
+        <img [src]="content.image" (click)="displayContentDetails(content)">
+        
+        <!-- Display the description -->
+        <p>{{ content.description }}</p>
+        
+        <!-- Display the creator -->
+        <p>Creator: {{ content.creator }}</p>
+        
+        <!-- Display the type -->
+        <p>Type: {{ content.type }}</p>
+        
+        <!-- Display the tags if available -->
+        <p *ngIf="content.tags && content.tags.length > 0">Tags: {{ content.tags.join(', ') }}</p>
+    </div>
+</div>
