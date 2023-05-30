@@ -1,20 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
-
-interface Content {
-  title: string;
-  type?: string;
-}
+import { Content } from './helper-files/content-interface';
 
 @Pipe({
   name: 'typeFilter'
 })
 export class TypeFilterPipe implements PipeTransform {
 
-  transform(content: Content[], type?: string): Content[] {
+  transform(contents: Content[], type?: string): Content[] {
     if (type) {
-      return content.filter((item) => item.type === type);
+      return contents.filter((content) => content.type === type);
     } else {
-      return content.filter((item) => !item.type);
+      return contents.filter((content) => !content.type);
     }
   }
   

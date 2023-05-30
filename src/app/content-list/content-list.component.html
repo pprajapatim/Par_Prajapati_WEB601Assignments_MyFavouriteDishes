@@ -9,16 +9,13 @@
 </div>
 
 <h3>Content with No Type</h3>
-<div *ngFor="let item of contents | typeFilter">
-  <div class="card">{{ item.title }}</div>
-</div>
+<app-content-card *ngFor="let content of contents | typeFilter: ''" [content] = "content">
+</app-content-card>
 
 <h3>Content with Snack Type Dishes</h3>
-<div *ngFor="let item of contents | typeFilter: 'Snack'">
-  <div class="card type-a">{{ item.title }}</div>
-</div>
+<app-content-card *ngFor="let content of contents | typeFilter: 'Snack'" [content] = "content">
+</app-content-card>
 
 <h3>Content with Meal Type Dishes</h3>
-<div *ngFor="let item of contents | typeFilter: 'Meal'">
-  <div class="card type-b">{{ item.title }}</div>
-</div>
+<app-content-card *ngFor="let content of contents | typeFilter: 'Meal'" [content] = "content">
+</app-content-card>

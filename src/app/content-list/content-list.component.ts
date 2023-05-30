@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
 
-interface Content {
-  title: string;
-  type?: string;
-}
-
 @Component({
   selector: 'app-content-list',
   templateUrl: './content-list.component.html',
@@ -82,7 +77,7 @@ export class ContentListComponent {
 
   searchContent() {
     const exists = this.contents.some(
-      (item) => item.title.toLowerCase() === this.searchTitle.toLowerCase()
+      (content) => content.title.toLowerCase() === this.searchTitle.toLowerCase()
     );
 
     this.titleExists = exists;
