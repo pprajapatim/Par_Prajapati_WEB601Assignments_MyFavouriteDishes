@@ -1,22 +1,24 @@
-<div class="content-list">
-    <!-- Iterate  each item in the contents array -->
-    <div *ngFor="let content of contents, let first = first" class="content-card" [ngClass]="{ 'border-black': first }">
-        <!-- Display the title -->
-        <h2>{{ content.title }}</h2>
-        
-        <!-- Display the image if available and the click event for console -->
-        <img [src]="content.image" (click)="displayContentDetails(content)">
-        
-        <!-- Display the description -->
-        <p>{{ content.description }}</p>
-        
-        <!-- Display the creator -->
-        <p>Creator: {{ content.creator }}</p>
-        
-        <!-- Display the type -->
-        <p>Type: {{ content.type }}</p>
-        
-        <!-- Display the tags if available -->
-        <p *ngIf="content.tags && content.tags.length > 0">Tags: {{ content.tags.join(', ') }}</p>
-    </div>
+<h2>Content List</h2>
+
+<div>
+  <input type="text" [(ngModel)]="searchTitle" placeholder="Enter title" />
+  <button (click)="searchContent()">Search</button>
+  <p [style.color]="titleExists ? 'green' : 'red'">
+    {{ searchMessage }}
+  </p>
+</div>
+
+<h3>Content with No Type</h3>
+<div *ngFor="let item of contents | typeFilter">
+  <div class="card">{{ item.title }}</div>
+</div>
+
+<h3>Content with Snack Type Dishes</h3>
+<div *ngFor="let item of contents | typeFilter: 'Snack'">
+  <div class="card type-a">{{ item.title }}</div>
+</div>
+
+<h3>Content with Meal Type Dishes</h3>
+<div *ngFor="let item of contents | typeFilter: 'Meal'">
+  <div class="card type-b">{{ item.title }}</div>
 </div>

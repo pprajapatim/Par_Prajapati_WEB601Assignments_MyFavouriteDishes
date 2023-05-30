@@ -1,6 +1,6 @@
 {
   "name": "par-prajapati-my-favourite-dishes",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -22,7 +22,7 @@
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
     "rxjs": "~7.8.0",
-    "tslib": "^2.3.0",
+    "tslib": "^2.5.2",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
