@@ -1,0 +1,41 @@
+.content-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content-card {
+    border: 1px solid #000;
+    padding: 10px;
+    margin: 10px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+img {
+    cursor: pointer;
+    width: 400px;
+    height: 400px;
+}
+
+p {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+.border-black {
+    border: 2px solid #000;
+}
+  
+.type-a {
+  background-color: #ffe6e6;
+}
+
+.type-b {
+  background-color: #e6f3ff;
+}

@@ -1,0 +1,8 @@
+<div class="content-card">
+    <h3>{{ content.title }}</h3>
+    <p>{{ content.description }}</p>
+    <p>{{ content.creator }}</p>
+    <img [src]="content.image || 'https://clipart-library.com/images/6Tyoa96kc.png'">
+    <p [hoverAffect]="'text-decoration'">{{ content.type }}</p>
+    <p *ngFor="let tag of content.tags" [hoverAffect]="'font-weight'">{{ tag }}</p>
+</div>

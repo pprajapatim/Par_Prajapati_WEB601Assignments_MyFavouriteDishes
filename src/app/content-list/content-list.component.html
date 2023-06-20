@@ -1,0 +1,21 @@
+<h2>Content List</h2>
+
+<div>
+  <input type="text" [(ngModel)]="searchTitle" placeholder="Enter title" />
+  <button (click)="searchContent()">Search</button>
+  <p [style.color]="titleExists ? 'green' : 'red'">
+    {{ searchMessage }}
+  </p>
+</div>
+
+<h1>Content with No Type</h1>
+<app-content-card *ngFor="let content of contents | typeFilter: ''" [content] = "content">
+</app-content-card>
+
+<h1>Content with Snack Type Dishes</h1>
+<app-content-card *ngFor="let content of contents | typeFilter: 'Snack'" [content] = "content">
+</app-content-card>
+
+<h1>Content with Meal Type Dishes</h1>
+<app-content-card *ngFor="let content of contents | typeFilter: 'Meal'" [content] = "content">
+</app-content-card>
