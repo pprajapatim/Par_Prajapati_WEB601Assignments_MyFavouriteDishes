@@ -1,5 +1,7 @@
 <h2>Content List</h2>
 
+<app-create-content (createContentEvent)="addContent($event)"></app-create-content>
+
 <div>
   <input type="text" [(ngModel)]="searchTitle" placeholder="Enter title" />
   <button (click)="searchContent()">Search</button>
@@ -19,3 +21,11 @@
 <h1>Content with Meal Type Dishes</h1>
 <app-content-card *ngFor="let content of contents | typeFilter: 'Meal'" [content] = "content">
 </app-content-card>
+
+<div *ngFor="let item of contents.slice(-1)" style="text-align: center; border: 5px solid #240c0c;">
+  <h1>{{item.id}}</h1>
+  <h2>{{ item.title }}</h2>
+  <h2>{{ item.description }}</h2>
+  <h2>{{ item.creator }}</h2>
+
+</div>
