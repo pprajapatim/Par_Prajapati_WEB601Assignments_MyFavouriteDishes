@@ -1,31 +1,37 @@
-<h2>Content List</h2>
+<main>
+  <section class="searchForTitle">
+      <div>
+          <input type="text" [(ngModel)]="searchTitle" placeholder="Search Title here...">
+          <button (click)="searchByTitle()">Search</button>
+      </div>
+      <div *ngIf="titleFound !== null">
+          <p [style.color]="titleFound ? 'green' : 'red'">
+              {{titleFound ? 'Dish Exist' : 'Dish Not Exist'}}
+          </p>
+      </div>
+  </section>
 
-<app-create-content (createContentEvent)="addContent($event)"></app-create-content>
+  <h1>Content with No Type</h1>
 
-<div>
-  <input type="text" [(ngModel)]="searchTitle" placeholder="Enter title" />
-  <button (click)="searchContent()">Search</button>
-  <p [style.color]="titleExists ? 'green' : 'red'">
-    {{ searchMessage }}
-  </p>
-</div>
+  <section class="cards">
+    <div *ngFor="let content of contents | typeFilter:''" hoverAffect="border">
+        <app-content-card [dish]="content" [class]="''"></app-content-card>
+    </div>
+  </section>
 
-<h1>Content with No Type</h1>
-<app-content-card *ngFor="let content of contents | typeFilter: ''" [content] = "content">
-</app-content-card>
+  <h1>Content with Snack Type Dishes</h1>
 
-<h1>Content with Snack Type Dishes</h1>
-<app-content-card *ngFor="let content of contents | typeFilter: 'Snack'" [content] = "content">
-</app-content-card>
+  <section class="cards">
+    <div *ngFor="let content of contents | typeFilter:'Snack'" hoverAffect="border">
+        <app-content-card [dish]="content" [class]="'Snack'"></app-content-card>
+    </div>
+  </section>
 
-<h1>Content with Meal Type Dishes</h1>
-<app-content-card *ngFor="let content of contents | typeFilter: 'Meal'" [content] = "content">
-</app-content-card>
+  <h1>Content with Meal Type Dishes</h1>
 
-<div *ngFor="let item of contents.slice(-1)" style="text-align: center; border: 5px solid #240c0c;">
-  <h1>{{item.id}}</h1>
-  <h2>{{ item.title }}</h2>
-  <h2>{{ item.description }}</h2>
-  <h2>{{ item.creator }}</h2>
-
-</div>
+  <section class="cards">
+    <div *ngFor="let content of contents | typeFilter:'Meal'" hoverAffect="border">
+        <app-content-card [dish]="content" [class]="'Meal'"></app-content-card>
+    </div>
+  </section>
+</main>

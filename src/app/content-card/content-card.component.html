@@ -1,8 +1,17 @@
-<div class="content-card">
-    <h3>{{ content.title }}</h3>
-    <p>{{ content.description }}</p>
-    <p>{{ content.creator }}</p>
-    <img [src]="content.image || 'https://clipart-library.com/images/6Tyoa96kc.png'">
-    <p [hoverAffect]="'text-decoration'">{{ content.type }}</p>
-    <p *ngFor="let tag of content.tags" [hoverAffect]="'font-weight'">{{ tag }}</p>
+<div [id]="dish.id" [ngClass]="['card', class]" hoverAffect="border">
+
+    <div *ngIf="dish.image; else defaultImage">
+        <img [src]="dish.image" alt={{dish.title}} (click)="handleClick(dish)">
+    </div>
+    <ng-template #defaultImage>
+        <img [src]="defaultDish" alt={{dish.title}} (click)="handleClick(dish)">
+    </ng-template>
+
+    <h2>{{dish.title}}</h2>
+    <p>{{dish.description}}</p>
+    <p><strong>Creator:</strong> {{dish.creator}}</p>
+    <p *ngIf="dish.type" hoverAffect="underline"><strong>Type:</strong> {{dish.type}}</p>
+    <p *ngIf="dish.tags"><strong>Tags:</strong> 
+        <span *ngFor="let tag of dish.tags" hoverAffect="bold">{{ tag }}</span>
+    </p>
 </div>
