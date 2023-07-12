@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Content } from './helper-files/content-interface';
 import { contents } from './helper-files/contentDb';
+import { MessageService } from './message.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +11,12 @@ import { contents } from './helper-files/contentDb';
 
 export class DishServiceService {
 
-  constructor() { }
+  constructor(private MessageService: MessageService) { }
 
   getDishes(): Observable<Content[]>
   {
     const dishes = contents;
+    this.MessageService.add("Content array loaded!");
     return of(dishes);
   }
 
@@ -21,8 +24,10 @@ export class DishServiceService {
     const dish = contents.find(content => content.id === id);
 
     if (dish) {
+      this.MessageService.add(`Content Item at id: ${id}`);
       return of(dish);
     }
+    this.MessageService.add("Invalid Id");
     return of("Invalid Id");
   }
 }
