@@ -22,6 +22,13 @@ export class ContentListComponent {
     this.DishServiceService.getDishes().subscribe(dishes => this.contents = dishes );
   }
 
+  addNewDish(newDish: Content){
+    this.DishServiceService.addDish(newDish).subscribe(newDishFromServer => {
+      this.contents.push(newDishFromServer);
+      this.contents = [...this.contents];
+    });
+  }
+
   searchByTitle() {
     const matchingDish = this.contents.find(dish => dish.title.toLowerCase() === this.searchTitle.toLowerCase());
     const cardElements = document.querySelectorAll(`div.card`);

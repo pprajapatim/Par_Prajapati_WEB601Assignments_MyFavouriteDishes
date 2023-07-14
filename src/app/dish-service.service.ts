@@ -3,6 +3,8 @@ import { Observable, of } from 'rxjs';
 import { Content } from './helper-files/content-interface';
 import { contents } from './helper-files/contentDb';
 import { MessageService } from './message.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 
 @Injectable({
@@ -11,13 +13,21 @@ import { MessageService } from './message.service';
 
 export class DishServiceService {
 
-  constructor(private MessageService: MessageService) { }
+  private httpOptions = {
+    headers: new HttpHeaders({ "Content-Type": "application/json"})
+  }
+
+  constructor(private http: HttpClient , private MessageService: MessageService) { }
 
   getDishes(): Observable<Content[]>
   {
-    const dishes = contents;
     this.MessageService.add("Content array loaded!");
-    return of(dishes);
+    return this.http.get<Content[]>("/api/dishes");
+  }
+
+  addDish(newDish: Content): Observable<Content>{
+    this.MessageService.add(`New Dish added`);
+    return this.http.post<Content>("/api/dishes", newDish, this.httpOptions);
   }
 
   getDishById(id: number): Observable<any> {

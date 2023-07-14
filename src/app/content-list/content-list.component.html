@@ -1,4 +1,7 @@
 <main>
+
+  <app-modify-content (addDishEvent)="addNewDish($event)"></app-modify-content>
+
   <section class="searchForTitle">
       <div>
           <input type="text" [(ngModel)]="searchTitle" placeholder="Search Title here...">
