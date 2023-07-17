@@ -31,7 +31,7 @@ export class ContentListComponent {
 
   searchByTitle() {
     const matchingDish = this.contents.find(dish => dish.title.toLowerCase() === this.searchTitle.toLowerCase());
-    const cardElements = document.querySelectorAll(`div.card`);
+    const cardElements = document.querySelectorAll(`.card`);
     if(matchingDish){
       this.titleFound = true;
       cardElements.forEach(card => {
