@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContentCardComponent } from './content-card/content-card.component';
@@ -23,6 +22,8 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddContentDialogComponent } from './add-content-dialog/add-content-dialog.component';
+import { ContentDetailComponent } from './content-detail/content-detail.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -34,10 +35,13 @@ import { AddContentDialogComponent } from './add-content-dialog/add-content-dial
     MessageComponent,
     ModifyContentComponent,
     AddContentDialogComponent,
+    ContentDetailComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    AppRoutingModule,
     HttpClientModule,
     MatDialogModule,
     MatInputModule,
@@ -48,7 +52,7 @@ import { AddContentDialogComponent } from './add-content-dialog/add-content-dial
     ,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false,
-      delay: 1000
+      // delay: 1000
     }),
     BrowserAnimationsModule
   ],

@@ -10,8 +10,7 @@
         </div>
     </mat-card-header>
     <mat-card-content class="card-body">
-        <h2>{{dish.title}}</h2>
-        <p>{{dish.description}}</p>
+        <h2><a routerLink="/contents/{{dish.id}}">{{dish.title}}</a></h2>
         <p><strong>Creator:</strong> {{dish.creator}}</p>
     </mat-card-content>
     <mat-card-footer>

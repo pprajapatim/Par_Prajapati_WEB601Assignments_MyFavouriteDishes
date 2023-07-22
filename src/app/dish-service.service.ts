@@ -31,11 +31,11 @@ export class DishServiceService {
   }
 
   getDishById(id: number): Observable<any> {
-    const dish = contents.find(content => content.id === id);
+    const dish = this.http.get<Content>(`api/dishes/${id}`);
 
     if (dish) {
       this.MessageService.add(`Content Item at id: ${id}`);
-      return of(dish);
+      return dish;
     }
     this.MessageService.add("Invalid Id");
     return of("Invalid Id");
