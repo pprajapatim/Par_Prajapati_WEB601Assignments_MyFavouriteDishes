@@ -1,9 +1,9 @@
 {
   "name": "par-prajapati-my-favourite-dishes",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "http-server dist/ParthPrajapatiDishes -o",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -23,7 +23,9 @@
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
+    "@angular/service-worker": "^16.1.6",
     "angular-in-memory-web-api": "^0.16.0",
+    "http-server": "^14.1.1",
     "run": "^1.4.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.5.2",
